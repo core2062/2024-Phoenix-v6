@@ -3,6 +3,7 @@ package frc.robot;
 import java.util.function.DoubleSupplier;
 
 import com.pathplanner.lib.auto.AutoBuilder;
+import com.pathplanner.lib.auto.NamedCommands;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
@@ -93,6 +94,9 @@ public class RobotContainer {
         // Configure the button bindings
         configureButtonBindings();
         l_Launcher.configMotors();
+
+        NamedCommands.registerCommand("", null);
+
 
         autoChooser = AutoBuilder.buildAutoChooser();
         SmartDashboard.putData("Auton" ,autoChooser);
