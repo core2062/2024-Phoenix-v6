@@ -98,7 +98,8 @@ public class RobotContainer {
         registerCommands();
 
         autoChooser = AutoBuilder.buildAutoChooser();
-        SmartDashboard.putData("Auton" ,autoChooser);
+        // autoChooser = AutoBuilder.buildAutoChooserWithOptionsModifier((stream) -> isBlueAlliance ? stream.filter(auto -> auto.getName().startsWith("Blue")): stream);
+        SmartDashboard.putData("Auton", autoChooser);
     }
     
     /**
@@ -108,10 +109,10 @@ public class RobotContainer {
     private void registerCommands(){
         NamedCommands.registerCommand("Zero Launcher", new ZeroLauncherCommand(l_Launcher));
         NamedCommands.registerCommand("Launcher Aim Speaker Close", new LauncherAimCommand(l_Launcher, () -> 50));
-        NamedCommands.registerCommand("Launcher Aim Speaker Far", new LauncherAimCommand(l_Launcher, () -> 33.5));
+        NamedCommands.registerCommand("Launcher Aim Pickup", new LauncherAimCommand(l_Launcher, () -> 33.5));
         NamedCommands.registerCommand("Intake Assembly", new IntakeAssemblyCommand(i_Intake, 0.5, 0.5));
         NamedCommands.registerCommand("Auto Speaker Shoot", new AutonShootCommand(i_Intake, l_Launcher, 0.5, 0.6, 0.4)); // use when robot is at base of speaker
-        NamedCommands.registerCommand("", null);
+        NamedCommands.registerCommand("Run Intake", new InstantCommand(() -> i_Intake.setFeedAndIntakeSpeed(0.5, 0.5)));
     }
 
     /**
