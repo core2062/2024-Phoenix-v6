@@ -53,9 +53,9 @@ public class Swerve extends SubsystemBase {
             this::driveRobotRelative, // Method that will drive the robot given ROBOT RELATIVE ChassisSpeeds
             new HolonomicPathFollowerConfig( // HolonomicPathFollowerConfig, this should likely live in your Constants class
                 new PIDConstants(5.0, 0.0, 0.0), //Translation PID Constants
-                new PIDConstants(5.0, 0.0, 0.0), //Rotation PID Constants
+                new PIDConstants(5.0, 0.0, 0.0), //on PID Constants
                 Constants.AutoConstants.kMaxSpeedMetersPerSecond, //Max Module speed, in m/s
-                0.4, // Drive base radius in meters. Distance from robot center to furthest module.
+                0.41, // Drive base radius in meters. Distance from robot center to furthest module.
                 new ReplanningConfig()), // Default path replanning config. See the API for the options here
             () -> {
                 // Boolean supplier that controls when the path will be mirrored for the red alliance

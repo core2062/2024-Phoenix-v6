@@ -2,10 +2,10 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 4.0,
-      "y": 7.0
+      "x": 15.788141279722655,
+      "y": 4.352972122314352
     },
-    "rotation": 0
+    "rotation": 60.449835980656665
   },
   "command": {
     "type": "sequential",
@@ -24,21 +24,21 @@
           }
         },
         {
-          "type": "path",
+          "type": "named",
           "data": {
-            "pathName": "Move One Path"
+            "name": "Auto Speaker Shoot"
           }
         },
         {
-          "type": "wait",
+          "type": "named",
           "data": {
-            "waitTime": 5.0
+            "name": "Launcher Aim Pickup"
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "Move Two Path"
+            "pathName": "Show Pony Red"
           }
         }
       ]

@@ -1,0 +1,49 @@
+{
+  "version": 1.0,
+  "startingPose": {
+    "position": {
+      "x": 15.788141279722655,
+      "y": 4.352972122314352
+    },
+    "rotation": 60.231437869724175
+  },
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "named",
+          "data": {
+            "name": "Zero Launcher"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Launcher Aim Speaker Close"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Auto Speaker Shoot"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Launcher Aim Pickup"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Duck and Cover Red"
+          }
+        }
+      ]
+    }
+  },
+  "folder": null,
+  "choreoAuto": false
+}

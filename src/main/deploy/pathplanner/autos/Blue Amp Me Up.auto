@@ -1,0 +1,49 @@
+{
+  "version": 1.0,
+  "startingPose": {
+    "position": {
+      "x": 0.7878583538904772,
+      "y": 6.752462795554297
+    },
+    "rotation": -120.0
+  },
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "named",
+          "data": {
+            "name": "Zero Launcher"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Launcher Aim Speaker Close"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Auto Speaker Shoot"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Launcher Aim Pickup"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Amp Me Up Blue"
+          }
+        }
+      ]
+    }
+  },
+  "folder": null,
+  "choreoAuto": false
+}
