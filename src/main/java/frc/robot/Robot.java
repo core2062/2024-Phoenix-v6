@@ -66,8 +66,8 @@ public class Robot extends TimedRobot {
 
     }
 
-    m_driveSpeedchooser.setDefaultOption("Set Demo Speed", demoSpeed); //TODO: change default based upon speed mod you want
-    m_driveSpeedchooser.addOption("Set Comp Speed", compSpeed);
+    m_driveSpeedchooser.setDefaultOption("Set Comp Speed", compSpeed);
+    m_driveSpeedchooser.addOption("Set Demo Speed", demoSpeed); //TODO: change default based upon speed mod you want
     SmartDashboard.putData("Speed chooser", m_driveSpeedchooser);
   
     ctreConfigs = new CTREConfigs();

@@ -25,7 +25,6 @@ import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.POVButton;
-import frc.lib.util.AutonSelector;
 import frc.robot.commands.*;
 import frc.robot.constants.Constants;
 import frc.robot.subsystems.*;
@@ -109,7 +108,7 @@ public class RobotContainer {
 
         registerCommands();
 
-        autoChooser = AutonSelector.buildAutoChooserAlliance("Do Nothing");
+        autoChooser = AutoBuilder.buildAutoChooser("Do Nothing");
         SmartDashboard.putData("Auton", autoChooser);
     }
     

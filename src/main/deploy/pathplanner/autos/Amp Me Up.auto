@@ -2,10 +2,10 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 15.803293328999827,
+      "x": 0.7878583538904772,
       "y": 6.752462795554297
     },
-    "rotation": -64.92829311259152
+    "rotation": -120.0
   },
   "command": {
     "type": "sequential",
@@ -38,7 +38,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Amp Me Up Red"
+            "pathName": "Amp Me Up"
           }
         }
       ]

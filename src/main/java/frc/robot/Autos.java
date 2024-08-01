@@ -5,7 +5,6 @@ import frc.robot.commands.AutonShootCommand;
 import frc.robot.commands.FeedAssemblyCommand;
 import frc.robot.commands.IntakeAssemblyCommand;
 import frc.robot.commands.LauncherAimCommand;
-import frc.robot.commands.LauncherAssemblyCommand;
 import frc.robot.commands.TeleopSwerve;
 import frc.robot.commands.TrackingLauncherAimCommand;
 import frc.robot.commands.ZeroLauncherCommand;
@@ -187,33 +186,33 @@ public class Autos extends SequentialCommandGroup {
 
 
 
-            String trajectoryJSON2 = "paths/RedAmpMidNote.wpilib.json";
-            Trajectory trajectory2 = new Trajectory(); 
-            try {
-                Path trajectoryPath2 = Filesystem.getDeployDirectory().toPath().resolve(trajectoryJSON2);
-                trajectory2 = TrajectoryUtil.fromPathweaverJson(trajectoryPath2);
-                System.out.println("Path " + trajectoryPath2);
-            } catch (IOException ex) {
-                DriverStation.reportError("Unable to open trajectory: " + trajectoryJSON2, ex.getStackTrace());
-                };
+            // String trajectoryJSON2 = "paths/RedAmpMidNote.wpilib.json";
+            // Trajectory trajectory2 = new Trajectory(); 
+            // try {
+            //     Path trajectoryPath2 = Filesystem.getDeployDirectory().toPath().resolve(trajectoryJSON2);
+            //     trajectory2 = TrajectoryUtil.fromPathweaverJson(trajectoryPath2);
+            //     System.out.println("Path " + trajectoryPath2);
+            // } catch (IOException ex) {
+            //     DriverStation.reportError("Unable to open trajectory: " + trajectoryJSON2, ex.getStackTrace());
+            //     };
                 // An example trajectory to follow.  All units in meters.
-                Trajectory Trajectory2 = trajectory2;
+                // Trajectory Trajectory2 = trajectory2;
             
             var thetaController2 =
             new ProfiledPIDController(Constants.AutoConstants.kPThetaController, 0, 0, Constants.AutoConstants.kThetaControllerConstraints);
             thetaController2.enableContinuousInput(-Math.PI, Math.PI);
             
-            SwerveControllerCommand swerveControllerCommand2 =
-            new SwerveControllerCommand(
-                Trajectory2,
-                s_Swerve::getPose,
-                Constants.Swerve.swerveKinematics,
-                new PIDController(Constants.AutoConstants.kPXController, 0, 0),
-                new PIDController(Constants.AutoConstants.kPYController, 0, 0),
-                thetaController2,
-                s_Swerve::setModuleStates,
-                s_Swerve
-                );
+            // SwerveControllerCommand swerveControllerCommand2 =
+            // new SwerveControllerCommand(
+            //     Trajectory2,
+            //     s_Swerve::getPose,
+            //     Constants.Swerve.swerveKinematics,
+            //     new PIDController(Constants.AutoConstants.kPXController, 0, 0),
+            //     new PIDController(Constants.AutoConstants.kPYController, 0, 0),
+            //     thetaController2,
+            //     s_Swerve::setModuleStates,
+            //     s_Swerve
+            //     );
             
             addCommands(
                 new ZeroLauncherCommand(l_LauncherSubsystem),

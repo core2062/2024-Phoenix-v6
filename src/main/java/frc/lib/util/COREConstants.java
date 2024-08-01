@@ -1,6 +1,5 @@
 package frc.lib.util;
 
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.Preferences;
 
 public class COREConstants {
@@ -60,5 +59,9 @@ public class COREConstants {
 
     public String getLabel() {
         return label;
+    }
+
+    public String getType() {
+        return type.toString();
     }
 }

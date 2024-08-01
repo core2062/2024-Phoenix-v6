@@ -2,10 +2,10 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 0.7878583538904772,
-      "y": 6.752462795554297
+      "x": 0.75,
+      "y": 4.35
     },
-    "rotation": -120.0
+    "rotation": 119.5870639205883
   },
   "command": {
     "type": "sequential",
@@ -38,7 +38,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Amp Me Up Blue"
+            "pathName": "Show Pony"
           }
         }
       ]

@@ -2,10 +2,10 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 15.788141279722655,
-      "y": 4.352972122314352
+      "x": 0.75,
+      "y": 4.35
     },
-    "rotation": 60.449835980656665
+    "rotation": 119.5870639205883
   },
   "command": {
     "type": "sequential",
@@ -38,7 +38,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Show Pony Red"
+            "pathName": "Duck and Cover"
           }
         }
       ]
