@@ -40,6 +40,25 @@
           "data": {
             "pathName": "Amp Me Up"
           }
+        },
+        {
+          "type": "race",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "Pause Movement"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "Intake Assembly"
+                }
+              }
+            ]
+          }
         }
       ]
     }

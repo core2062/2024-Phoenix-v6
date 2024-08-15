@@ -40,6 +40,25 @@
           "data": {
             "pathName": "Show Pony"
           }
+        },
+        {
+          "type": "race",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "Intake Assembly"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "Pause Movement"
+                }
+              }
+            ]
+          }
         }
       ]
     }

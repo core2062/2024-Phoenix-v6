@@ -29,10 +29,6 @@ public class IntakeSubsystem extends SubsystemBase{
     public void setFeedSpeed(double speed){
         leftFeedMotor.set(ControlMode.PercentOutput, speed);
         rightFeedMotor.set(ControlMode.PercentOutput, -speed);
-        if (speed == 0){
-            System.out.println("Setting zero in feed function: " + iterations);
-            iterations += 1;
-        }
     }
     
     public void setFeedAndIntakeSpeed(double intakeSpeed, double feedSpeed){
@@ -40,10 +36,6 @@ public class IntakeSubsystem extends SubsystemBase{
         rightFeedMotor.set(ControlMode.PercentOutput, -feedSpeed);
         
         intakeMotor.setControl(m_request.withOutput(intakeSpeed));
-        if (feedSpeed == 0){
-            System.out.println("Setting zero in feed and intake function: " + iterations);
-            iterations += 1;
-        }
     }
 
     @Override
