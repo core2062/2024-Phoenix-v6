@@ -49,8 +49,8 @@ public class RobotContainer {
     private final JoystickButton zeroGyro = new JoystickButton(driver, XboxController.Button.kY.value);
     private final JoystickButton robotCentric = new JoystickButton(driver, XboxController.Button.kLeftBumper.value);
 
-    private final JoystickButton SpeakerTrack = new JoystickButton(driver, XboxController.Button.kB.value);
-    private final JoystickButton NoteTrack = new JoystickButton(driver, XboxController.Button.kX.value);
+    private final JoystickButton SpeakerTrack = new JoystickButton(driver, XboxController.Button.kX.value);
+    private final JoystickButton NoteTrack = new JoystickButton(driver, XboxController.Button.kB.value);
 
     /* Operator Buttons */
     private final JoystickButton IntakeAssembly = new JoystickButton(operator, 5);
@@ -79,6 +79,7 @@ public class RobotContainer {
     private final ScoreAssembly c_ScoreAssembly = new ScoreAssembly();
     private final LauncherTrackingSubsystem lt_LaunchTrackSubsystem = new LauncherTrackingSubsystem();
     private final SwerveTrackingSubsystem st_SwerveTrackSubsystem = new SwerveTrackingSubsystem();
+    private final ObjectTrackingSubsystem ob_ObjectTrackingSubsystem = new ObjectTrackingSubsystem();
 
     /* double Suppliers */
     public static DoubleSupplier intakeSpeed = () -> Constants.IntakeConstants.kIntakeSpeed.get(0.0);
@@ -136,6 +137,11 @@ public class RobotContainer {
         /* Driver Buttons */
         zeroGyro.onTrue(new InstantCommand(() -> s_Swerve.zeroHeading()));
         SpeakerTrack.whileTrue(st_SwerveTrackSubsystem.AimAtSpeaker(s_Swerve, 
+                                                              () -> -driver.getRawAxis(translationAxis),
+                                                              () -> -driver.getRawAxis(strafeAxis),
+                                                              () -> robotCentric.getAsBoolean()
+                                                              ));
+        NoteTrack.whileTrue(ob_ObjectTrackingSubsystem.AimAtSpeaker(s_Swerve, 
                                                               () -> -driver.getRawAxis(translationAxis),
                                                               () -> -driver.getRawAxis(strafeAxis),
                                                               () -> robotCentric.getAsBoolean()

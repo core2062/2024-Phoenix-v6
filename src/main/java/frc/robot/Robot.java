@@ -134,12 +134,14 @@ public class Robot extends TimedRobot {
         Constants.Swerve.SpeedMod.set(0.82); //TODO: tune to robot
         Constants.LauncherConstants.kSpeakerCloseAngle.set(50);
         Constants.LauncherConstants.kSpeakerLaunchSpeed.set(0.6);
+        Constants.kObjectTrackingVal = 0.02;
         System.out.println("compspeed");
         break;
-      case demoSpeed:
+        case demoSpeed:
         Constants.Swerve.SpeedMod.set(0.3);
         Constants.LauncherConstants.kSpeakerCloseAngle.set(23);
         Constants.LauncherConstants.kSpeakerLaunchSpeed.set(0.2);
+        Constants.kObjectTrackingVal = 0.04;
         System.out.println("demospeed");
         break;
       default:

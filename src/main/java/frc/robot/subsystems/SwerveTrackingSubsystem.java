@@ -56,7 +56,7 @@ public class SwerveTrackingSubsystem extends SubsystemBase {
     }
     
     public Command AimAtSpeaker(Swerve s_Swerve, DoubleSupplier translationSup, DoubleSupplier strafeSup, BooleanSupplier robotCentricSup) {
-        System.out.println(Constants.VisionConstants.SpeakerID);
+        System.out.println("swerve tracking");
         Command setPipelineCommand = this.run(
             () -> pipeline.setDouble(Constants.VisionConstants.SpeakerID)
             );
@@ -93,7 +93,7 @@ public class SwerveTrackingSubsystem extends SubsystemBase {
     }
 
     public double getRotation(double targetAngle){
-        // System.out.println("id: " + id);
+        System.out.println("id: " + id);
         //adjusting for mounting angle offset
         targetAngle += 2;
         if (id <= 0){

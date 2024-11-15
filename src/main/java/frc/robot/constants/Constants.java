@@ -17,6 +17,8 @@ import frc.lib.util.SwerveModuleConstants;
 public final class Constants {
     public static final double stickDeadband = 0.1;
 
+    public static double kObjectTrackingVal = 0.02;
+
     public static boolean kTarget = false;
     public static boolean kOverride = false;
     public static double kDesiredAngle = 0.0;

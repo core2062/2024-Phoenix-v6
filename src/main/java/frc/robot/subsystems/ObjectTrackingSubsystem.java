@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.commands.TeleopSwerve;
+import frc.robot.constants.Constants;
 
 public class ObjectTrackingSubsystem extends SubsystemBase {
     // double angle;
@@ -31,14 +32,15 @@ public class ObjectTrackingSubsystem extends SubsystemBase {
         id = tid.getDouble(0.0);
         y = ty.getDouble(0.0);
         area = ta.getDouble(0.0);
-        SmartDashboard.putNumber("distance", getDistance());
-        SmartDashboard.putNumber("limelightx", x);
-        SmartDashboard.putNumber("limelighty", y);
-        SmartDashboard.putNumber("limelighta", area);
-        SmartDashboard.putNumber("limelightid", id);
+        SmartDashboard.putNumber("intake-distance", getDistance());
+        SmartDashboard.putNumber("intake-limelightx", x);
+        SmartDashboard.putNumber("intake-limelighty", y);
+        SmartDashboard.putNumber("intake-limelighta", area);
+        SmartDashboard.putNumber("intake-limelightid", id);
     }
     
     public Command AimAtSpeaker(Swerve s_Swerve, DoubleSupplier translationSup, DoubleSupplier strafeSup, BooleanSupplier robotCentricSup) {
+        System.out.println("tracking object");
         Command setPipelineCommand = this.run(
             () -> pipeline.setDouble(0)
             );
@@ -51,7 +53,7 @@ public class ObjectTrackingSubsystem extends SubsystemBase {
                 () -> getRotation(0),
                 robotCentricSup 
             );
-        return setPipelineCommand.andThen(rotateSwerveCommand);
+        return setPipelineCommand.alongWith(rotateSwerveCommand);
     }
     
     public double getDistance(){
@@ -62,13 +64,6 @@ public class ObjectTrackingSubsystem extends SubsystemBase {
     }
 
     public double getRotation(double targetAngle){
-        // System.out.println("id: " + id);
-        if (id <= 0){
-            System.out.println("id is 0");
-            return 0;
-        }
-        else{
-            return (tx.getDouble(0.0)-targetAngle)*-0.04;
-        }
+        return (tx.getDouble(0.0)-targetAngle)*-Constants.kObjectTrackingVal;
     }
 }
