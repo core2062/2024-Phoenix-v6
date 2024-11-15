@@ -37,20 +37,22 @@ import frc.robot.subsystems.*;
  */
 public class RobotContainer {
     /* Controllers */
-    private final Joystick driver = new Joystick(0);
-    private final Joystick operator = new Joystick(1);
+    private final Joystick driver1 = new Joystick(0);
+    private final Joystick driver2 = new Joystick(1);
+
+    private final Joystick operator = new Joystick(2);
 
     /* Drive Controls */
     private final int translationAxis = XboxController.Axis.kLeftY.value;
     private final int strafeAxis = XboxController.Axis.kLeftX.value;
-    private final int rotationAxis = XboxController.Axis.kRightX.value;
+    private final int rotationAxis = XboxController.Axis.kLeftX.value;
 
     /* Driver Buttons */
-    private final JoystickButton zeroGyro = new JoystickButton(driver, XboxController.Button.kY.value);
-    private final JoystickButton robotCentric = new JoystickButton(driver, XboxController.Button.kLeftBumper.value);
+    private final JoystickButton zeroGyro = new JoystickButton(driver1, 5);
+    private final JoystickButton robotCentric = new JoystickButton(driver2, 1);
 
-    private final JoystickButton SpeakerTrack = new JoystickButton(driver, XboxController.Button.kX.value);
-    private final JoystickButton NoteTrack = new JoystickButton(driver, XboxController.Button.kB.value);
+    private final JoystickButton NoteTrack = new JoystickButton(driver1, 1);
+    private final JoystickButton SpeakerTrack = new JoystickButton(driver2, 5);
 
     /* Operator Buttons */
     private final JoystickButton IntakeAssembly = new JoystickButton(operator, 5);
@@ -95,9 +97,9 @@ public class RobotContainer {
         s_Swerve.setDefaultCommand(
             new TeleopSwerve(
                 s_Swerve, 
-                () -> -driver.getRawAxis(translationAxis), 
-                () -> -driver.getRawAxis(strafeAxis), 
-                () -> -driver.getRawAxis(rotationAxis), 
+                () -> -driver1.getRawAxis(translationAxis), 
+                () -> -driver1.getRawAxis(strafeAxis), 
+                () -> -driver2.getRawAxis(rotationAxis), 
                 () -> robotCentric.getAsBoolean()
             )
         );
@@ -132,18 +134,18 @@ public class RobotContainer {
      * instantiating a {@link GenericHID} or one of its subclasses ({@link
      * edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then passing it to a {@link
      * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
-     */
+     */  
     private void configureButtonBindings() {
         /* Driver Buttons */
         zeroGyro.onTrue(new InstantCommand(() -> s_Swerve.zeroHeading()));
         SpeakerTrack.whileTrue(st_SwerveTrackSubsystem.AimAtSpeaker(s_Swerve, 
-                                                              () -> -driver.getRawAxis(translationAxis),
-                                                              () -> -driver.getRawAxis(strafeAxis),
+                                                              () -> -driver1.getRawAxis(translationAxis),
+                                                              () -> -driver1.getRawAxis(strafeAxis),
                                                               () -> robotCentric.getAsBoolean()
                                                               ));
         NoteTrack.whileTrue(ob_ObjectTrackingSubsystem.AimAtSpeaker(s_Swerve, 
-                                                              () -> -driver.getRawAxis(translationAxis),
-                                                              () -> -driver.getRawAxis(strafeAxis),
+                                                              () -> -driver1.getRawAxis(translationAxis),
+                                                              () -> -driver1.getRawAxis(strafeAxis),
                                                               () -> robotCentric.getAsBoolean()
                                                               ));
 
